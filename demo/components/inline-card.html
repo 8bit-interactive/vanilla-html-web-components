@@ -1,0 +1,43 @@
+<template id="inline-card-template">
+  <style>
+    :host { display: block; color: #20232b; }
+    .card { padding: 18px; border: 1px solid #d9d5f5; border-radius: 10px; background: #faf9ff; }
+    :host h1 { margin-block: 0 8px; color: #6b3fc6; font-size: 1.25rem; line-height: 1.35; }
+    p { margin-block: 0 14px; }
+    button { padding: 8px 12px; border: 0; border-radius: 6px; color: #fff; background: #5148a8; font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #173f9f; outline-offset: 3px; }
+  </style>
+  <article class="card">
+    <h1 data-component-i18n="inlineTitle">Component A · single file</h1>
+    <p data-component-i18n="inlineBody">This heading uses the same scoped selector as Component B.</p>
+    <button type="button" data-component-i18n="triggerError">Trigger example error</button>
+  </article>
+</template>
+
+<script>
+  const template = document.querySelector("#inline-card-template");
+
+  customElements.define("demo-inline-card", class extends HTMLElement {
+    connectedCallback() {
+      if (!this.shadowRoot) {
+        this.attachShadow({ mode: "open" }).append(template.content.cloneNode(true));
+        this.shadowRoot.querySelector("button").addEventListener("click", () => {
+          throw new Error("Example error from the inline component script");
+        });
+      }
+      if (!this.onLocaleChange) this.onLocaleChange = () => this.render();
+      window.addEventListener("demo:localechange", this.onLocaleChange);
+      this.render();
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener("demo:localechange", this.onLocaleChange);
+    }
+
+    render() {
+      for (const element of this.shadowRoot.querySelectorAll("[data-component-i18n]")) {
+        element.textContent = window.demoI18n.t(element.dataset.componentI18n);
+      }
+    }
+  });
+</script>

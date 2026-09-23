@@ -1,0 +1,6 @@
+:host { display: block; color: #20232b; }
+.card { padding: 18px; border: 1px solid #b9e1cf; border-radius: 10px; background: #f6fcf8; }
+:host h1 { margin-block: 0 8px; color: #18734a; font-size: 1.25rem; line-height: 1.35; }
+p { margin-block: 0 14px; }
+button { padding: 8px 12px; border: 0; border-radius: 6px; color: #fff; background: #20734a; font: inherit; cursor: pointer; }
+button:focus-visible { outline: 3px solid #173f9f; outline-offset: 3px; }

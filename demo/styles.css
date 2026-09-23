@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light;
+  font: 16px/1.6 system-ui, sans-serif;
+  color: #20232b;
+  background: #f4f5f8;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+main {
+  width: min(960px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.page-header, .explanation, .component-panel, .accessibility-notes {
+  padding: 24px;
+  border: 1px solid #dfe2e8;
+  border-radius: 12px;
+  background: #fff;
+}
+
+h1, h2, p { margin-block-start: 0; }
+body h1 { color: #a52d24; }
+h1 { margin-block-end: 8px; font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.15; }
+h2 { margin-block-end: 8px; font-size: 1.2rem; line-height: 1.35; }
+
+.eyebrow { margin-block-end: 8px; color: #5148a8; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.language-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-block-start: 20px; }
+.language-picker label { font-weight: 700; }
+.language-picker select { min-width: 150px; padding: 8px 34px 8px 10px; border: 1px solid #565b68; border-radius: 6px; background: #fff; color: #20232b; font: inherit; }
+
+button, select { font: inherit; }
+button:focus-visible, select:focus-visible { outline: 3px solid #173f9f; outline-offset: 3px; }
+
+.status { min-height: 1.7em; margin-block: 16px; color: #343a49; }
+.explanation { margin-block-end: 16px; }
+.global-probe { margin-block-start: 12px; padding: 10px; border-inline-start: 4px solid #a52d24; background: #fff5f3; }
+.component-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.component-panel { min-width: 0; }
+.component-panel > p { margin-block-end: 16px; }
+#inline-mount, #split-mount { min-height: 100px; }
+.accessibility-notes { margin-block-start: 16px; }
+.accessibility-notes li { margin-block: 8px; }
+footer { margin-block-start: 18px; color: #51576a; }
+
+code { padding: 2px 5px; border-radius: 4px; background: #f0f0f5; font-family: ui-monospace, monospace; }
+
+@media (max-width: 680px) {
+  main { margin-block: 16px; }
+  .component-grid { grid-template-columns: 1fr; }
+}
