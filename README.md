@@ -5,10 +5,11 @@ A small, dependency-free component loader demo. It compares a single HTML compon
 ## Run locally
 
 ```sh
-python3 -m http.server 8000 --directory demo
+npm install
+npm start
 ```
 
-Open <http://localhost:8000>. The demo must be served over HTTP because it fetches component HTML files.
+`npm run dev` does the same thing. Open <http://localhost:8000>. The demo must be served over HTTP because it fetches component HTML files.
 
 ## What the demo shows
 
